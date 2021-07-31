@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="my-2">
+        <h3>New Task</h3>
+        <hr>
+        <form action="" method="post">
+            {% csrf_token %}
+    {#        {{ form.as_p }}#}
+            <div>
+                <span class="mx-2">Title: {{ form.title }}</span>
+                <span>Priority: {{ form.priority }}</span>
+
+            </div>
+            <br>
+            <div>
+                <span class="mx-2">Due Date: {{ form.due_date }}</span>
+                <span>Categories: {{ form.group }}</span>
+            </div>
+            <br>
+           <p>Description:</p>{{ form.description }}
+            <br>
+            <br>
+            <button class="btn btn-success ml-2" type="submit">Save</button>
+            <br>
+            <br>
+        </form>
+    </div>
+{% endblock content %}

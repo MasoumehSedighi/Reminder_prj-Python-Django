@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load timetag %}
+    {% load static %}
+    {% block page_style %}
+         <link rel="stylesheet" href={% static 'list.css' %}>
+    {% endblock %}
+{% block title %}
+    Tasks Page
+{% endblock title %}
+{% block content %}
+    <div class="row my-3">
+        <div class="col-6 ">
+            <h3> All Task</h3>
+            <hr>
+            {% for task in object_list %}
+                <div class="card">
+                    <div class="card-header">
+                        <p><a href="{% url 'task_detail' task.pk %}">
+                        <span class="font-weight-bold">{{ task.title }} |</span></a>
+                            <span class="text-muted">due date : {{ task.due_date }}</span></p>
+                        <p>Group: {{ task.group }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-6 ">
+            <h3 class="text-danger"> Time Out Tasks</h3>
+            <hr>
+            {% for task in overdue_list %}
+                <div class="card">
+                    <div class="card-header">
+                        <p><a href="{% url 'task_detail' task.pk %}">
+                        <span class="font-weight-bold text-dark">{{ task.title }} |</span></a>
+                        <span class="text-muted">due date : {{ task.due_date }} </span></p>
+                        <p>Group: {{ task.group }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

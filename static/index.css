@@ -1,0 +1,31 @@
+.jumbotron {
+    padding: 30px !important;
+    width: 500px;
+    background-color: rgba(125,128,119,0.38)!important;
+    border-radius: 100px !important;
+    text-align: center !important;
+    color: white !important;
+    font-weight: bold !important;
+}
+
+.jumbotron a {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+.jumbotron a:hover {
+    color: black !important;
+}
+
+.btn-primary {
+    background-color: green !important;
+    border:0px !important;
+}
+
+.btn:hover {
+    background-color: #05b01a !important;
+
+}
+
+
+

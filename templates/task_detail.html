@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load timetag %}
+{% block title %}
+    {{ object.title | up_first_letter }}
+{% endblock title %}
+{% block content %}
+    <div class="article-entry my-5">
+    <h3 class="my-3">Task : {{ object.title }}</h3>
+    <p>Priority: {{ object.priority }} </p>
+    <p>Created : {{ object.created_at }}</p>
+    <p>Time left : {% remaining_time object.due_date %}</p>
+    <p>Description : {{ object.description }}</p>
+    <p>Categories : {{ object.group }}</p>
+    </div>
+    <p>Back to <a href="{% url 'task_list' %}">All Task</a>.</p>
+{% endblock content %}

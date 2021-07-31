@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="my-5">
+        <h4> Category name: {{categories_detail.categories_name}}</h4>
+        <h4>------------------</h4>
+        <h5>Task:</h5>
+        {% for task in categories_detail.task_set.all %}
+                    <div class="items  my-3">
+                        <a class="subitem text-decoration-none">
+                          {% if task.done %}
+                               <p class="listitem text-muted ">{{task.title}} | Done </p>
+                                {% else %}
+                              <a class="text-decoration-none" href="{% url 'task_detail' task.pk %}">
+                                  <p class="listitem text-warning ">{{task.title}} </p></a>
+                            {% endif %}
+                        </div>
+                    </div>
+        {% endfor %}
+    </div>
+{% endblock %}

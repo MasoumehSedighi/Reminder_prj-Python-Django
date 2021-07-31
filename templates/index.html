@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}
+    index
+{% endblock title %}
+    {% load static %}
+    {% block page_style %}
+         <link rel="stylesheet" href={% static 'index.css' %}>
+    {% endblock %}
+{% block content %}
+    <div class="jumbotron my-5">
+        <h3 class="mb-3">ToDo Application</h3>
+        <hr>
+        <p class="lead">
+        <div class="mb-3">
+            <a class="mb-2" href="{% url 'admin:index' %}">Admin</a>
+        </div>
+        <div class="mb-3">
+            <a  href="{% url 'task_list' %}">View All Task</a>
+        </div>
+        <div class="mb-3">
+            <a  href="{% url 'categories' %}">Categories</a>
+        </div>
+        <a class="btn btn-primary  " href="{% url 'task_new' %}" role="button">Add New Task</a><br>
+        </p>
+    </div>
+{% endblock content %}
